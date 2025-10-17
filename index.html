@@ -54,7 +54,7 @@
                 <div><label>Temperatura (°C):</label><input type="number" step="0.1" id="temperature"></div>
                 <div><label>Humedad (%):</label><input type="number" step="0.1" id="humidity"></div>
             </div>
-
+<div class="hide1" style="display: none;">
             <!-- 4 – Chequeo inicial -->
             <hr>
             <div class="section-header"><strong>4 – Chequeo inicial</strong></div>
@@ -69,10 +69,11 @@
                 <label><input type="checkbox" id="refrigerant">Tiene carga de refrigerante</label>
                 <label><input type="checkbox" id="manuals">Se tienen manuales y diagramas</label>
             </div>
+    </div>
 
             <!-- 5 – Mediciones -->
             <hr>
-            <div class="section-header"><strong>5 – Mediciones</strong></div>
+            <div class="section-header"><strong>4 – Mediciones</strong></div>
             <div class="grid">
                 <div class="mediciones">
                     <div>
@@ -194,7 +195,7 @@
 
             <!-- 6 – Chequeo eléctrico -->
             <hr>
-            <div class="section-header"><strong>6 – Chequeo eléctrico</strong></div>
+            <div class="section-header"><strong>5 – Chequeo eléctrico</strong></div>
             <div class="grid checkboxes">
                 <label><input type="checkbox" id="main_switch">Switch principal, hardware y cables correctos</label>
                 <label><input type="checkbox" id="switch_covers">Cubiertas de presostatos</label>
@@ -209,7 +210,7 @@
 
             <!-- 7 – Chequeo en refrigeración -->
             <hr>
-            <div class="section-header"><strong>7 – Chequeo en refrigeración</strong></div>
+            <div class="section-header"><strong>6 – Chequeo en refrigeración</strong></div>
             <div class="grid checkboxes">
                 <label><input type="checkbox" id="fans_ok">Ventiladores OK</label>
                 <label><input type="checkbox" id="coils_ok">Serpentines OK</label>
@@ -228,7 +229,7 @@
 
             <!-- 8 – Pruebas -->
             <hr>
-            <div class="section-header"><strong>8 – Pruebas</strong></div>
+            <div class="section-header"><strong>7 – Pruebas</strong></div>
             <div class="grid">
                 <div><label>Temp. ambiente (°C):</label><input type="text" id="hum_from"></div>
                 <div><label>Punto máximo -10 (°C):</label><input type="text" id="hum_target"></div>
@@ -244,19 +245,19 @@
 
             <!-- 9 – Observaciones -->
             <hr>
-            <div class="section-header"><strong>9 – Observaciones</strong></div>
+            <div class="section-header"><strong>8 – Observaciones</strong></div>
             <textarea id="notes"></textarea>
 
             <!-- 10 – Firma de especialista -->
             <hr>
-            <div class="section-header"><strong>10 – Firma de especialista</strong></div>
+            <div class="section-header"><strong>9 – Firma de especialista</strong></div>
             <div><label>Nombre de Especialista</label><input type="text" id="name_esp"></div>
             <button type="button" id="openSignatureEsp">Firma de Especialista</button>
             <canvas id="signaturePreviewEsp" width="300" height="150"></canvas>
 
             <!-- 11 – Firma de cliente -->
             <hr>
-            <div class="section-header"><strong>11 – Firma de cliente</strong></div>
+            <div class="section-header"><strong>10 – Firma de cliente</strong></div>
             <div><label>Nombre de Cliente</label><input type="text" id="name_cus"></div>
             <button type="button" id="openSignatureCus">Firma de Cliente</button>
             <canvas id="signaturePreviewCus" width="300" height="150"></canvas>
