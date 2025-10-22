@@ -3,7 +3,7 @@
 // ======================
 let records = JSON.parse(localStorage.getItem('records') || '[]');
 let currentSignatureTarget = null;
-const enableDeleteButton = true;
+const enableDeleteButton = false;
 const storageKey = 'records';
 // ======================
 // AUXILIARES
