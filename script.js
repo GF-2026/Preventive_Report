@@ -10,10 +10,6 @@ const storageKey = 'records';
 // ======================
 function get(id){ return document.getElementById(id).value.trim(); }
 function chk(id){ return document.getElementById(id).checked ? 'Sí' : 'No'; }
-/*
- * Función auxiliar segura para obtener el dataURL de un elemento canvas.
- * Evita que el script falle si el elemento no se encuentra o no es un canvas.
- */
 function getSignatureData(id) {
     const canvasElement = document.getElementById(id);
     if (canvasElement && canvasElement.tagName === 'CANVAS') {
