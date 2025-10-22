@@ -286,3 +286,11 @@ if (seccion) {
   // Para volver a mostrarla más tarde (por ejemplo, al hacer clic en un botón)
   // seccion.style.display = 'block'; 
 }
+// Sección de semáforos
+function setEstado(num, color) {
+  const colores = ['roja', 'amarilla', 'verde'];
+  colores.forEach(c => {
+    document.getElementById(c + num).classList.remove('activa');
+  });
+  document.getElementById(color + num).classList.add('activa');
+}
