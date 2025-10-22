@@ -33,10 +33,15 @@ function generateFolio(){
 document.getElementById('saveBtn').addEventListener('click', () => {
     const signatureEsp = document.getElementById('signaturePreviewEsp');
     const signatureCus = document.getElementById('signaturePreviewCus');
+
     if (isCanvasEmpty(signatureEsp) || isCanvasEmpty(signatureCus)) {
         alert('⚠️ Debes capturar ambas firmas antes de guardar el registro.');
-        return; // Detiene el guardado
+        return;
     }
+
+    // ... tu resto del código para guardar
+});
+
     const record = {
         folio: generateFolio(),
         OT: get('OT'),
