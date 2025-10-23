@@ -5,7 +5,7 @@ let records = JSON.parse(localStorage.getItem('records') || '[]');
 let currentSignatureTarget = null; // 'esp' o 'cus'
 const enableDeleteButton = true;   // true = activo, false = desactivado
 const storageKey = 'records';
-
+let estados = { 1: '', 2: '', 3: '' }; // 👈 estados de semáforos
 // ======================
 // AUXILIARES
 // ======================
@@ -125,7 +125,14 @@ document.getElementById('clearBtn').addEventListener('click', ()=>{
     if (espCtx) espCtx.clearRect(0,0,300,150);
     if (cusCtx) cusCtx.clearRect(0,0,300,150);
 });
-
+  // 🔄 Reset semáforos
+  estados = { 1: '', 2: '', 3: '' };
+  ['1','2','3'].forEach(num => {
+    ['roja','amarilla','verde'].forEach(c => 
+      document.getElementById(c + num)?.classList.remove('activa')
+    );
+  });
+});
 // ======================
 // RENDER TABLA
 // ======================
