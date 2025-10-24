@@ -121,6 +121,33 @@ document.getElementById('saveBtn').addEventListener('click', () => {
       
     pressures_ls_1: get('pressures_ls_1'),
     pressures_ls_2: get('pressures_ls_2'),
+      
+    main_switch: chk('main_switch'),
+switch_covers: chk('switch_covers'),
+tighting: chk('tighting'),
+headfan: chk('headfan'),
+balance: chk('balance'),
+fuses_ok: chk('fuses_ok'),
+faseado: chk('faseado'),
+crankcase: chk('crankcase'),
+grounded: chk('grounded'),
+fans_ok: chk('fans_ok'),
+coils_ok: chk('coils_ok'),
+armafles_ok: chk('armafles_ok'),
+inyection_ok: chk('inyection_ok'),
+oil_ok: chk('oil_ok'),
+sights_ok: chk('sights_ok'),
+acid_ok: chk('acid_ok'),
+noleaks: chk('noleaks'),
+hilow: chk('hilow'),
+lowoil: chk('lowoil'),
+rotalocks: chk('rotalocks'),
+capillaries: chk('capillaries'),
+frosty: chk('frosty'),
+heat_test: chk('heat_test'),
+hum_test: chk('hum_test'),
+cold_test: chk('cold_test')
+
 
           // 🔴 SEMÁFOROS
     estado_ref: estados[1],
