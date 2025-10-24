@@ -36,81 +36,105 @@ function generateFolio(){
     return `MP_Report-${company}-${y}${m}${d}-${h}${min}`;
 }
 
-/// ======================
-// GUARDAR REGISTRO (¡CORRECCIÓN FINAL!)
 // ======================
-document.getElementById('saveBtn').addEventListener('click', ()=>{
-    const record = {
-        folio: generateFolio(),
-        OT: get('OT'),
-        datetime: get('datetime'),
-        company: get('company'),
-        engineer: get('engineer'),
-        phone: get('phone'),
-        city: get('city'),
-        description: get('description'),
-        brand: get('brand'),
-        model: get('model'),
-        serial: get('serial'),
-        controlnum: get('controlnum'),
-        status: get('status'),
-        ubication: get('ubication'),
-        temperature: get('temperature'),
-        humidity: get('humidity'),
-        marking: chk('marking'),
-        voltage_plate: chk('voltage_plate'),
-        shock_free: chk('shock_free'),
-        pallets: chk('pallets'),
-        unpack: chk('unpack'),
-        supplies_installed: chk('supplies_installed'),
-        specs_available: chk('specs_available'),
-        refrigerant: chk('refrigerant'),
-        manuals: chk('manuals'),
-        notes: get('notes'),
-        name_esp: get('name_esp'),
-        name_cus: get('name_cus'),
-        // Aseguramos que la captura de firma use la función segura getSignatureData (si la tienes)
-        // O si no la usas, nos aseguramos de que los IDs del canvas existan en el HTML.
-        // YA CONFIRMAMOS QUE signaturePreviewEsp y signaturePreviewCus EXISTEN en el HTML.
-        signatureEsp: document.getElementById('signaturePreviewEsp').toDataURL(),
-        signatureCus: document.getElementById('signaturePreviewCus').toDataURL(),
-        
-        // =======================================================
-        //   CORRECCIÓN DE CAMPOS DE MEDICIÓN
-        // =======================================================
-        
-        // 1. Presiones Estáticas: SOLO tienen 1 input en HTML (ID: static_ls, static_hs)
-        static_ls: [get('static_ls')], // Capturar solo el ID simple
-        static_hs: [get('static_hs')], // Capturar solo el ID simple
-        
-        // 2. Resistencias (Estos SÍ están bien, tienen _1, _2, _3 en HTML)
-        resistance_hs: [get('resistance_hs_1'), get('resistance_hs_2'), get('resistance_hs_3')],
-        resistance_ls: [get('resistance_ls_1'), get('resistance_ls_2'), get('resistance_ls_3')],
-        resistance_circ: [get('resistance_circ_1'), get('resistance_circ_2'), get('resistance_circ_3')],
-        resistance_heat: [get('resistance_heat_1'), get('resistance_heat_2'), get('resistance_heat_3')],
-        resistance_hum: [get('resistance_hum_1'), get('resistance_hum_2'), get('resistance_hum_3')],
-        
-        // 3. Voltajes: to_ground SOLO tiene 1 input en HTML
-        voltaje_hs: [get('voltaje_hs_1'), get('voltaje_hs_2'), get('voltaje_hs_3')],
-        voltaje_ls: [get('voltaje_ls_1'), get('voltaje_ls_2'), get('voltaje_ls_3')],
-        to_ground: [get('to_ground')], // Capturar solo el ID simple
-        
-        // 4. Amperajes (Estos SÍ están bien)
-        current_hs: [get('current_hs_1'), get('current_hs_2'), get('current_hs_3')],
-        current_ls: [get('current_ls_1'), get('current_ls_2'), get('current_ls_3')],
-        current_circ: [get('current_circ_1'), get('current_circ_2'), get('current_circ_3')],
-        current_heat: [get('current_heat_1'), get('current_heat_2'), get('current_heat_3')],
-        current_hum: [get('current_hum_1'), get('current_hum_2'), get('current_hum_3')],
-        
-        // 5. Presiones de Compresor: Tienen _1 y _2 en HTML, pero en JS pedías _3
-        // Usaremos solo _1 y _2 que son los que existen: pressures_hs_3 y pressures_ls_3 NO EXISTEN
-        pressures_hs: [get('pressures_hs_1'), get('pressures_hs_2')], 
-        pressures_ls: [get('pressures_ls_1'), get('pressures_ls_2')]
-    };
-    records.push(record);
-    localStorage.setItem(storageKey, JSON.stringify(records));
-    renderTable();
-    alert('✅ Registro guardado correctamente');
+// GUARDAR REGISTRO (CAMPOS SEPARADOS POR COLUMNA)
+// ======================
+document.getElementById('saveBtn').addEventListener('click', () => {
+  const record = {
+    folio: generateFolio(),
+    OT: get('OT'),
+    datetime: get('datetime'),
+    company: get('company'),
+    engineer: get('engineer'),
+    phone: get('phone'),
+    city: get('city'),
+    description: get('description'),
+    brand: get('brand'),
+    model: get('model'),
+    serial: get('serial'),
+    controlnum: get('controlnum'),
+    status: get('status'),
+    ubication: get('ubication'),
+    temperature: get('temperature'),
+    humidity: get('humidity'),
+    marking: chk('marking'),
+    voltage_plate: chk('voltage_plate'),
+    shock_free: chk('shock_free'),
+    pallets: chk('pallets'),
+    unpack: chk('unpack'),
+    supplies_installed: chk('supplies_installed'),
+    specs_available: chk('specs_available'),
+    refrigerant: chk('refrigerant'),
+    manuals: chk('manuals'),
+    notes: get('notes'),
+    name_esp: get('name_esp'),
+    name_cus: get('name_cus'),
+    signatureEsp: getSignatureData('signaturePreviewEsp'),
+    signatureCus: getSignatureData('signaturePreviewCus'),
+
+    // 🔴 SEMÁFOROS
+    estado_ref: estados[1],
+    estado_heat: estados[2],
+    estado_elec: estados[3],
+
+    // 🔹 Estáticas
+    static_ls: get('static_ls'),
+    static_hs: get('static_hs'),
+
+    // 🔹 Resistencias
+    resistance_hs_1: get('resistance_hs_1'),
+    resistance_hs_2: get('resistance_hs_2'),
+    resistance_hs_3: get('resistance_hs_3'),
+    resistance_ls_1: get('resistance_ls_1'),
+    resistance_ls_2: get('resistance_ls_2'),
+    resistance_ls_3: get('resistance_ls_3'),
+    resistance_circ_1: get('resistance_circ_1'),
+    resistance_circ_2: get('resistance_circ_2'),
+    resistance_circ_3: get('resistance_circ_3'),
+    resistance_heat_1: get('resistance_heat_1'),
+    resistance_heat_2: get('resistance_heat_2'),
+    resistance_heat_3: get('resistance_heat_3'),
+    resistance_hum_1: get('resistance_hum_1'),
+    resistance_hum_2: get('resistance_hum_2'),
+    resistance_hum_3: get('resistance_hum_3'),
+
+    // 🔹 Voltajes
+    voltaje_hs_1: get('voltaje_hs_1'),
+    voltaje_hs_2: get('voltaje_hs_2'),
+    voltaje_hs_3: get('voltaje_hs_3'),
+    voltaje_ls_1: get('voltaje_ls_1'),
+    voltaje_ls_2: get('voltaje_ls_2'),
+    voltaje_ls_3: get('voltaje_ls_3'),
+    to_ground: get('to_ground'),
+
+    // 🔹 Corrientes
+    current_hs_1: get('current_hs_1'),
+    current_hs_2: get('current_hs_2'),
+    current_hs_3: get('current_hs_3'),
+    current_ls_1: get('current_ls_1'),
+    current_ls_2: get('current_ls_2'),
+    current_ls_3: get('current_ls_3'),
+    current_circ_1: get('current_circ_1'),
+    current_circ_2: get('current_circ_2'),
+    current_circ_3: get('current_circ_3'),
+    current_heat_1: get('current_heat_1'),
+    current_heat_2: get('current_heat_2'),
+    current_heat_3: get('current_heat_3'),
+    current_hum_1: get('current_hum_1'),
+    current_hum_2: get('current_hum_2'),
+    current_hum_3: get('current_hum_3'),
+
+    // 🔹 Presiones
+    pressures_hs_1: get('pressures_hs_1'),
+    pressures_hs_2: get('pressures_hs_2'),
+    pressures_ls_1: get('pressures_ls_1'),
+    pressures_ls_2: get('pressures_ls_2')
+  };
+
+  records.push(record);
+  localStorage.setItem(storageKey, JSON.stringify(records));
+  renderTable();
+  alert('✅ Registro guardado correctamente');
 });
 
 // ======================
