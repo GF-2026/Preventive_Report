@@ -62,16 +62,13 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     name_cus: get('name_cus'),
     signatureEsp: getSignatureData('signaturePreviewEsp'),
     signatureCus: getSignatureData('signaturePreviewCus'),
-
     // 🔴 SEMÁFOROS
     estado_ref: estados[1],
     estado_heat: estados[2],
     estado_elec: estados[3],
-
     // 🔹 Estáticas
     static_ls: get('static_ls'),
     static_hs: get('static_hs'),
-
     // 🔹 Resistencias
     resistance_hs_1: get('resistance_hs_1'),
     resistance_hs_2: get('resistance_hs_2'),
@@ -176,8 +173,14 @@ function renderTable(){
   'name_cus',
   'signatureEsp',
   'signatureCus',
+        
+    'estado_ref',
+    'estado_heat',
+    'estado_elec',
+        
   'static_ls',
   'static_hs',
+        
   'resistance_hs_1',
   'resistance_hs_2',
   'resistance_hs_3',
@@ -193,6 +196,7 @@ function renderTable(){
   'resistance_hum_1',
   'resistance_hum_2',
   'resistance_hum_3',
+        
   'voltaje_hs_1',
   'voltaje_hs_2',
   'voltaje_hs_3',
@@ -200,6 +204,7 @@ function renderTable(){
   'voltaje_ls_2',
   'voltaje_ls_3',
   'to_ground',
+        
   'current_hs_1',
   'current_hs_2',
   'current_hs_3',
@@ -215,6 +220,7 @@ function renderTable(){
   'current_hum_1',
   'current_hum_2',
   'current_hum_3',
+        
   'pressures_hs_1',
   'pressures_hs_2',
   'pressures_ls_1',
