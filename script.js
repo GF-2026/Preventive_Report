@@ -53,19 +53,12 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     model: get('model'),
     serial: get('serial'),
     controlnum: get('controlnum'),
-    status: get('status'),
+    status: get('status_test'),
     ubication: get('ubication'),
     temperature: get('temperature'),
     humidity: get('humidity'),
-    notes: get('notes'),
-    name_esp: get('name_esp'),
-    name_cus: get('name_cus'),
-    signatureEsp: getSignatureData('signaturePreviewEsp'),
-    signatureCus: getSignatureData('signaturePreviewCus'),
-    // 🔴 SEMÁFOROS
-    estado_ref: estados[1],
-    estado_heat: estados[2],
-    estado_elec: estados[3],
+
+
     // 🔹 Estáticas
     static_ls: get('static_ls'),
     static_hs: get('static_hs'),
@@ -73,15 +66,19 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     resistance_hs_1: get('resistance_hs_1'),
     resistance_hs_2: get('resistance_hs_2'),
     resistance_hs_3: get('resistance_hs_3'),
+      
     resistance_ls_1: get('resistance_ls_1'),
     resistance_ls_2: get('resistance_ls_2'),
     resistance_ls_3: get('resistance_ls_3'),
+      
     resistance_circ_1: get('resistance_circ_1'),
     resistance_circ_2: get('resistance_circ_2'),
     resistance_circ_3: get('resistance_circ_3'),
+      
     resistance_heat_1: get('resistance_heat_1'),
     resistance_heat_2: get('resistance_heat_2'),
     resistance_heat_3: get('resistance_heat_3'),
+      
     resistance_hum_1: get('resistance_hum_1'),
     resistance_hum_2: get('resistance_hum_2'),
     resistance_hum_3: get('resistance_hum_3'),
@@ -90,24 +87,30 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     voltaje_hs_1: get('voltaje_hs_1'),
     voltaje_hs_2: get('voltaje_hs_2'),
     voltaje_hs_3: get('voltaje_hs_3'),
+      
     voltaje_ls_1: get('voltaje_ls_1'),
     voltaje_ls_2: get('voltaje_ls_2'),
     voltaje_ls_3: get('voltaje_ls_3'),
+      
     to_ground: get('to_ground'),
 
     // 🔹 Corrientes
     current_hs_1: get('current_hs_1'),
     current_hs_2: get('current_hs_2'),
     current_hs_3: get('current_hs_3'),
+      
     current_ls_1: get('current_ls_1'),
     current_ls_2: get('current_ls_2'),
     current_ls_3: get('current_ls_3'),
+      
     current_circ_1: get('current_circ_1'),
     current_circ_2: get('current_circ_2'),
     current_circ_3: get('current_circ_3'),
+      
     current_heat_1: get('current_heat_1'),
     current_heat_2: get('current_heat_2'),
     current_heat_3: get('current_heat_3'),
+      
     current_hum_1: get('current_hum_1'),
     current_hum_2: get('current_hum_2'),
     current_hum_3: get('current_hum_3'),
@@ -115,8 +118,20 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     // 🔹 Presiones
     pressures_hs_1: get('pressures_hs_1'),
     pressures_hs_2: get('pressures_hs_2'),
+      
     pressures_ls_1: get('pressures_ls_1'),
-    pressures_ls_2: get('pressures_ls_2')
+    pressures_ls_2: get('pressures_ls_2'),
+
+          // 🔴 SEMÁFOROS
+    estado_ref: estados[1],
+    estado_heat: estados[2],
+    estado_elec: estados[3],
+      
+    notes: get('notes'),
+    name_esp: get('name_esp'),
+    name_cus: get('name_cus'),
+    signatureEsp: getSignatureData('signaturePreviewEsp'),
+    signatureCus: getSignatureData('signaturePreviewCus')
   };
 
   records.push(record);
