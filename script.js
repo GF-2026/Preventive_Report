@@ -360,14 +360,6 @@ canvas.addEventListener('touchmove', e => {
     ctx.stroke();
 }, false);
 const seccion = document.getElementById('section-headerx');
-
-if (seccion) {
-  // Para ocultarla
-  seccion.style.display = 'none';
-  
-  // Para volver a mostrarla más tarde (por ejemplo, al hacer clic en un botón)
-  // seccion.style.display = 'block'; 
-}
 // Sección de semáforos
 function setEstado(num, color) {
   const colores = ['roja', 'amarilla', 'verde'];
