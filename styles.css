@@ -252,3 +252,14 @@ hr {
     margin: 2px;
     padding: 4px 8px;
   }
+  .opcion {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+    color: white;
+  }
+  .verde { background: #2ecc71; }
+  .amarillo { background: #f1c40f; color: black; }
+  .rojo { background: #e74c3c; }
