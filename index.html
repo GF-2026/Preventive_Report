@@ -42,7 +42,7 @@
                 <div><label>Modelo:</label><input type="text" id="model"></div>
                 <div><label>Serie:</label><input type="text" id="serial"></div>
                 <div><label>Número de control:</label><input type="text" id="controlnum"></div>
-                <div><label>Estado Operativo:</label><input type="text" id="status_test"></div>
+                <div><label>'Está disponible el equipo?</label><input type="text" id="status_test"></div>
             </div>
 
             <!-- 3 – Condiciones ambientales -->
@@ -217,13 +217,14 @@
                 <div><label>Temp. ambiente (°C):</label><input type="text" id="hum_from"></div>
                 <div><label>Punto máximo -10 (°C):</label><input type="text" id="hum_target"></div>
                 <label><input type="checkbox" id="heat_test_ok">Prueba de calentamiento (soak 30 min)</label>
-                <div><label>Humedad baja (20 %HR):</label><input type="text" id="hum_low"></div>
-                <div><label>Humedad alta (80 %HR):</label><input type="text" id="hum_hig"></div>
-                <label><input type="checkbox" id="hum_test_ok">Prueba de humedad (soak 30 min c/u)</label>
                 <div><label>Punto máximo -10 (°C):</label><input type="text" id="temp_hig"></div>
                 <div><label>Punto máximo +10 (°C):</label><input type="text" id="temp_low"></div>
                 <label><input type="checkbox" id="cold_test_ok">Prueba de enfriamiento (soak 30 min)</label>
                 <div><label>Duración (min):</label><input type="text" id="pulldown"></div>
+                <label><input type="checkbox">Setear a valores propios para la humedad</label>                
+                <div><label>Humedad baja (20 %HR):</label><input type="text" id="hum_low"></div>
+                <div><label>Humedad alta (80 %HR):</label><input type="text" id="hum_hig"></div>
+                <label><input type="checkbox" id="hum_test_ok">Prueba de humedad (soak 30 min c/u)</label>
             </div>
                         <hr>
             <div class="section-header"><strong>8 – Indicadores de Salud</strong></div>
