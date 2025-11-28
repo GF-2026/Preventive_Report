@@ -141,7 +141,6 @@ if_not_work: get('if_not_work'),
 info_fail: get('info_fail'),
 ini_work: get('ini_work'),
 injection_valve_ok: chk('injection_valve_ok'),
-inyection_ok: chk('inyection_ok'),
 level_oi_ok: chk('level_oi_ok'),
 main_switch_ok: chk('main_switch_ok'),
 manuals_ok: chk('manuals_ok'),
@@ -196,7 +195,7 @@ resistance_ls_st: get('resistance_ls_st'),
 resistance_ls_to_ground_ok: chk('resistance_ls_to_ground_ok'),
 resultado_servicio: estado('resultado_servicio'),
 rotalocks_ok: chk('rotalocks_ok'),
-satus: get('satus'),
+status: get('status'),
 serial: get('serial'),
 sensors_ok: chk('sensors_ok'),
 shock_free_ok: chk('shock_free_ok'),
@@ -224,7 +223,7 @@ voltage_fase_to_neutral: get('voltage_fase_to_neutral'),
 voltage_of_control: get('voltage_of_control'),
 voltage_L1: get('voltage_L1'),
 voltage_L2: get('voltage_L2'),
-voltage_L2: get('voltage_L2'),
+voltage_L3: get('voltage_L3'),
 voltage_plate: get('voltage_plate'),
 voltage_plate_ok: chk('voltage_plate_ok'),
 voltaje_hs_1: get('voltaje_hs_1'),
@@ -232,12 +231,7 @@ voltaje_hs_2: get('voltaje_hs_2'),
 voltaje_hs_3: get('voltaje_hs_3'),
 voltaje_ls_1: get('voltaje_ls_1'),
 voltaje_ls_2: get('voltaje_ls_2'),
-voltaje_ls_3: get('voltaje_ls_3'),
-  estado_ref: estados[1],
-  estado_heat: estados[2],
-  estado_elec: estados[3],
-  resultado_servicio:estado('proximo_servicio'),
-
+voltaje_ls_3: get('voltaje_ls_3')
 };
 
   records.push(record);
@@ -282,6 +276,7 @@ function renderTable(){
 'bypass_calibration_ls_ok',
 'capillaries_ok',
 'city',
+'controller_calibrated_ok',
 'coils_ok',
 'cold_test_ok',
 'company',
@@ -339,7 +334,6 @@ function renderTable(){
 'info_fail',
 'ini_work',
 'injection_valve_ok',
-'inyection_ok',
 'level_oi_ok',
 'main_switch_ok',
 'manuals_ok',
@@ -349,8 +343,10 @@ function renderTable(){
 'name_esp',
 'no_strange_noise_ok',
 'noleaks_ok',
-'notes',
+'notes_Esp',
+'notes_Cus',
 'OT',
+'overcool_overtemp_ok',
 'overloads_config_ok',
 'pallets_ok',
 'part_change',
@@ -392,7 +388,7 @@ function renderTable(){
 'resistance_ls_to_ground_ok',
 'resultado_servicio',
 'rotalocks_ok',
-'satus',
+'status',
 'serial',
 'sensors_ok',
 'shock_free_ok',
@@ -402,10 +398,10 @@ function renderTable(){
 'specs_available_ok',
 'static_hs',
 'static_ls',
+'static_press_ok',
 'status_test',
 'supplies_installed_ok',
 'switch_covers_ok',
-'overcool_overtemp_ok',
 'temp_disch_hs_ok',
 'temp_disch_ls_ok',
 'temp_high',
@@ -428,9 +424,7 @@ function renderTable(){
 'voltaje_hs_3',
 'voltaje_ls_1',
 'voltaje_ls_2',
-'voltaje_ls_3',
-
-  'estado_ref', 'estado_heat', 'estado_elec','resultado_servicio'
+'voltaje_ls_3'
 ];
     
     head.innerHTML = columns.map(c => `<th>${c.toUpperCase().replace(/_/g, ' ')}</th>`).join('');
@@ -618,4 +612,3 @@ Gracias.`;
   const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
   window.location.href = mailtoLink;
 });
-
