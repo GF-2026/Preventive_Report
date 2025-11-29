@@ -4,7 +4,7 @@
 // ======================
 let records = JSON.parse(localStorage.getItem('records') || '[]');
 let currentSignatureTarget = null; // 'esp' o 'cus'
-const enableDeleteButton = false;   // true = activo, false = desactivado
+const enableDeleteButton = true;   // true = activo, false = desactivado
 const storageKey = 'records';
 let estados = { 1: '', 2: '', 3: '' }; // 👈 estados de semáforos
 // ======================
@@ -63,7 +63,7 @@ function generateFolio(){
     const now = new Date();
     const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0'), d = String(now.getDate()).padStart(2,'0');
     const h = String(now.getHours()).padStart(2,'0'), min = String(now.getMinutes()).padStart(2,'0');
-    return `Sartup_Report-${company}-${y}${m}${d}-${h}${min}`;
+    return `Preventive_Report-${company}-${y}${m}${d}-${h}${min}`;
 }
 
 // ======================
@@ -570,7 +570,7 @@ function verProximoServicio() {
 }
 document.getElementById('sendEmailBtn').addEventListener('click', () => {
   const to = "tck@olimp0.com";
-  const subject = encodeURIComponent("Nuevo reporte de arranque");
+  const subject = encodeURIComponent("Nuevo reporte Preventivo");
 
   const company = get('company');
   const folio = generateFolio('folio');
@@ -581,8 +581,8 @@ document.getElementById('sendEmailBtn').addEventListener('click', () => {
 
   // 💡 Usamos HTML con <br> para asegurar formato visible en BlueMail
   const htmlBody =
-`Hola,<br><br>
-Tienes un nuevo reporte preventivo:<br><br>
+`Hola!<br><br>
+Tienes un nuevo reporte Preventivo:<br><br>
 <strong>Folio:</strong> ${folio}<br>
 <strong>Empresa:</strong> ${company}<br>
 <strong>Modelo:</strong> ${model}<br>
@@ -598,4 +598,3 @@ Gracias.`;
   const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
   window.location.href = mailtoLink;
 });
-
