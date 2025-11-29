@@ -80,7 +80,7 @@
                     
                     <div>
                         <label>A tierra:*</label><br>
-                        <input type="number" id="res_hs_to_ground" required>
+                        <input type="number" id="resistance_hs_to_ground" required>
                     </div>
                     
                     <div>
@@ -92,7 +92,7 @@
                     
                     <div>
                         <label>A tierra:*</label><br>
-                        <input type="number" id="res_ls_to_ground" required>
+                        <input type="number" id="resistance_ls_to_ground" required>
                     </div>
 
                     <div>
@@ -104,7 +104,7 @@
                     
                     <div>
                         <label>A tierra:*</label><br>
-                        <input type="number" id="resistance_circs_to_ground_ok" required>
+                        <input type="number" id="resistance_circs_to_ground" required>
                     </div>
 
                     <div>
@@ -116,7 +116,7 @@
                     
                     <div>
                         <label>A tierra:*</label><br>
-                        <input type="number" id="resistance_heats_to_ground_ok" required>
+                        <input type="number" id="resistance_heats_to_ground" required>
                     </div>
 
                     <div>
@@ -128,21 +128,21 @@
 
                     <div>
                         <label>A tierra:</label><br>
-                        <input type="number" id="resistance_hums_to_ground_ok">
+                        <input type="number" id="resistance_hums_to_ground">
                     </div>
 
                     <div>
                         <label>Voltaje compresor HS (V):</label><br>
-                        <input type="number" id="voltage_hs_L1">
-                        <input type="number" id="voltage_hs_L2">
-                        <input type="number" id="voltage_hs_L3">
+                        <input type="number" id="voltaje_hs_r">
+                        <input type="number" id="voltaje_hs_s">
+                        <input type="number" id="voltaje_hs_t">
                     </div>
 
                     <div>
                         <label>Voltaje compresor LS (V):</label><br>
-                        <input type="number" id="voltaje_ls_L1">
-                        <input type="number" id="voltaje_ls_L2">
-                        <input type="number" id="voltaje_ls_L3">
+                        <input type="number" id="voltaje_ls_r">
+                        <input type="number" id="voltaje_ls_s">
+                        <input type="number" id="voltaje_ls_t">
                     </div>
 
                     <div>
@@ -187,15 +187,15 @@
 
                     <div>
                         <label>Presiones compresor HS:*</label><br>
-                        <input type="number" id="low_pressures_hs_1" required>
-                        <input type="number" id="disch_pressures_hs_1" required>
+                        <input type="number" id="pressures_hs_suction" required>
+                        <input type="number" id="pressures_hs_disch" required>
                         <label>Psi</label><br>
                     </div>
 
                     <div>
                         <label>Presiones compresor LS:*</label><br>
-                        <input type="number" id="low_pressures_ls_1" required>
-                        <input type="number" id="disch_pressures_ls_1" required>
+                        <input type="number" id="pressures_ls_suction" required>
+                        <input type="number" id="pressures_ls_disch" required>
                         <label>Psi</label><br>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
             <div class="section-header"><strong>7 – Pruebas</strong></div>
             <div class="grid">
                 <div><label>Temp. ambiente (°C):</label><input type="text" id="hum_from"></div>
-                <div><label>Punto máximo -10 (°C):</label><input type="text" id="hum_target"></div>
+                <div><label>Punto máximo -10 (°C):</label><input type="text" id="heat_target"></div>
                 <label><input type="checkbox" id="heat_test_ok">Prueba de calentamiento (soak 30 min)</label>
                 <div><label>Punto máximo -10 (°C):</label><input type="text" id="temp_hig"></div>
                 <div><label>Punto mínimo +10 (°C):</label><input type="text" id="temp_low"></div>
