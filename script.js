@@ -56,7 +56,7 @@ function generateFolio(){
     const now = new Date();
     const y = now.getFullYear(), m = String(now.getMonth()+1).padStart(2,'0'), d = String(now.getDate()).padStart(2,'0');
     const h = String(now.getHours()).padStart(2,'0'), min = String(now.getMinutes()).padStart(2,'0');
-    return `Sartup_Report-${company}-${y}${m}${d}-${h}${min}`;
+    return `Preventive_Report-${company}-${y}${m}${d}-${h}${min}`;
 }
 
 // ======================
@@ -433,7 +433,7 @@ document.getElementById('exportBtn').addEventListener('click', ()=>{
     const ws = XLSX.utils.json_to_sheet(records);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Reportes');
-    XLSX.writeFile(wb, 'Startup_reports.xlsx');
+    XLSX.writeFile(wb, 'Preventive_reports.xlsx');
 });
 
 // ======================
@@ -585,7 +585,7 @@ function verProximoServicio() {
 }
 document.getElementById('sendEmailBtn').addEventListener('click', () => {
   const to = "tck@olimp0.com";
-  const subject = encodeURIComponent("Nuevo reporte de arranque");
+  const subject = encodeURIComponent("Nuevo reporte preventivo");
 
   const company = get('company');
   const folio = generateFolio('folio');
