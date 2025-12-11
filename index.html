@@ -51,8 +51,8 @@
             <div class="grid">
                 <div class="fullwidth"><label>Ubicación dentro de la planta:*</label><input type="text" id="ubication" required>
                 </div>
-                <div><label>Temperatura (°C):</label><input type="number" step="0.1" id="temperature"></div>
-                <div><label>Humedad (%):</label><input type="number" step="0.1" id="humidity"></div>
+                <div><label>Temperatura (°C):</label><input type="number" step="1" id="temperature"></div>
+                <div><label>Humedad (%):</label><input type="number" step="1" id="humidity"></div>
             </div>
             <!-- 4 – Mediciones -->
             <hr>
@@ -61,26 +61,26 @@
                 <div class="mediciones">
                     <div>
                         <label>Presión Estática LS:*</label><br>
-                        <input type="number" step="1" id="static_ls" required>
+                        <input type="number" step="1" id="static_ls" required  class="special-box">
                         <label>Psi</label><br>
                     </div>
 
                     <div>
                         <label>Presión Estática HS:*</label><br>
-                        <input type="number" step="1" id="static_hs" required>
+                        <input type="number" step="1" id="static_hs" required  class="special-box">
                         <label>Psi</label><br>
                     </div>
 
                     <div>
                         <label>Resistencia compresor HS (Ω):</label><br>
-                        <div><label>T1-T2*<input type="number"   id="resistance_hs_rs" required></label></div>
-                        <div><label>T1-T3*<input type="number"   id="resistance_hs_rt" required></label></div>
-                        <div><label>T2-T3*<input type="number"   id="resistance_hs_st" required></label></div>
+                        <div><label>T1-T2*<input type="number"   id="resistance_hs_rs" required class="special-box"></label></div>
+                        <div><label>T1-T3*<input type="number"   id="resistance_hs_rt" required class="special-box"></label></div>
+                        <div><label>T2-T3*<input type="number"   id="resistance_hs_st" required class="special-box"></label></div>
                     </div>
                     
                     <div>
                         <label>A tierra:*</label><br>
-                        <input type="number" id="resistance_hs_to_ground" required>
+                        <input type="number" id="resistance_hs_to_ground" required class="special-box">
                     </div>
                     
                     <div>
