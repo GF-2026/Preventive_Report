@@ -97,14 +97,14 @@
 
                     <div>
                         <label>Resistencia circulador (Ω):*</label><br>
-                        <input type="number"   id="resistance_circ_rs" required>
-                        <input type="number"   id="resistance_circ_rt">
-                        <input type="number"   id="resistance_circ_st">
+                        <input type="number"   id="resistance_circ_rs" required class="special-box">
+                        <input type="number"   id="resistance_circ_rt" required class="special-box">
+                        <input type="number"   id="resistance_circ_st" required class="special-box">
                     </div>
                     
                     <div>
                         <label>A tierra:*</label><br>
-                        <input type="number" id="resistance_circs_to_ground" required>
+                        <input type="number" id="resistance_circs_to_ground" required class="special-box">
                     </div>
 
                     <div>
@@ -214,8 +214,12 @@
             <hr>
             <div class="section-header"><strong>5 – Chequeo eléctrico</strong></div>
             <div class="grid checkboxes">
-                <label><input type="checkbox" id="main_switch_ok">Switch principal, hardware y cables correctos</label>
+                <label><input type="checkbox" style="--miColor: purple>Switch principal, hardware y cables correctos</label>
                 <label><input type="checkbox" id="highvolt_cables_ok">Cables de alto voltaje OK</label>
+                <label class="chkContainer"  id="main_switch_ok" style="--miColor: purple;">
+                      <input type="checkbox"><span class="chkCustom unico"></span>
+                      Opción Switch principal, hardware y cables correctos
+                    </label>
                 <label><input type="checkbox" id="switch_covers_ok">Cubiertas de presostatos</label>
                 <label><input type="checkbox" id="tighting_ok">Conexiones reapretadas</label>
                 <label><input type="checkbox" id="headfan_ok">Revisión de headfans</label>
