@@ -594,4 +594,10 @@ Gracias.`;
   const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
   window.location.href = mailtoLink;
 });
+.chkCustom.unico {
+  border-color: var(--miColor);
+}
 
+input:checked + .chkCustom.unico {
+  background-color: var(--miColor);
+}
