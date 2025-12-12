@@ -316,5 +316,11 @@ hr {
     background-color: #fff1b8;  /* amarillo suave */
     border-color: #ff9900;      /* borde naranja */
 }
-
+.chkSpecial input:checked + .chkCustom {
+  background-color: green;
+  background-image: url("data:image/svg+xml,<svg .../>");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
