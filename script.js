@@ -415,6 +415,7 @@ function renderTable(){
 'resultado_servicio',
 'fail_work',
 'act_work',
+'noleaks_ok',
 'notes_Cus',
 'name_esp',
 'name_cus',
