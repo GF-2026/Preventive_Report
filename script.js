@@ -29,7 +29,7 @@ function get(id) {
 function chk(id) {
     const el = document.getElementById(id);
     if (!el) return '0';              // Si no existe, devuelve 0
-    return el.checked ? '1' : '0';   // Si existe, devuelve '1' o '0'
+    return el.checked ? 1 : 0;   // Si existe, devuelve '1' o '0'
 }
 window.addEventListener('DOMContentLoaded', () => {
     resetSemaforos();
