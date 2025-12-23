@@ -7,6 +7,18 @@
     <title>REPORTE DE MANTTO. PREVENTIVO</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+<script>
+const DEV_MODE = true;
+
+if (DEV_MODE) {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+      chk.checked = true;
+    });
+  });
+}
+</script>
+
 </head>
 
 <body>
@@ -55,8 +67,32 @@
                 <div><label>Humedad (%):</label><input type="number" step="1" id="humidity"></div>
             </div>
             <!-- 4 – Mediciones -->
+
+                        <hr>
+            <div class="section-header"><strong>4 – Chequeo inicial</strong></div>
+            <div>Voltaje General: (V)</div>
+            <div class="grid">          
+                <div><label>L1*<input type="text"   id="voltage_L1" required></label></div>
+                <div><label>L2*<input type="text"   id="voltage_L2" required></label></div>
+                 <div><label>L3*<input type="text"  id="voltage_L3" required></label></div>
+                 <div><label>Voltaje a neutro (V):</label></div>
+                <div><label><input type="text" id="voltage_fase_to_neutral"></label></div>
+            </div>
+            <div class="grid checkboxes">
+                <label><input type="checkbox" id="marking_ok">Se marcó futuro espacio de equipo</label>
+                <label><input type="checkbox" id="voltage_plate_ok">El voltaje coincide con la placa</label>
+                <label><input type="checkbox" id="shock_free_ok">Está libre de golpes</label>
+                <label><input type="checkbox" id="pallets_ok">Se deja espacio para tarimas</label>
+                <label><input type="checkbox" id="have_space_unpack_ok">Se deja espacio para desempacar</label>
+                <label><input type="checkbox" id="supplies_installed_ok">Suministros instalados</label>
+                <label><input type="checkbox" id="specs_available_ok">Hay especificaciones disponibles</label>
+                <label><input type="checkbox" id="has_refrigerant_ok">Tiene carga de refrigerante</label>
+                <label><input type="checkbox" id="manuals_ok">Se tienen manuales y diagramas</label>
+                <label><input type="checkbox" id="overloads_config_ok">Configuración de overloads OK</label>
+            </div>
+
             <hr>
-            <div class="section-header"><strong>4 – Mediciones</strong></div>
+            <div class="section-header"><strong>5 – Mediciones</strong></div>
             <div class="grid">
                 <div class="mediciones">
                     <div>
@@ -294,18 +330,14 @@
 
                     <div>
                         <label>Amperajes humidificador 1 (A):</label><br>
-                        <input type="number" id="current_hum1_r" required class="special-box">
-                        <input type="number" id="current_hum1_s" required class="special-box">
-                        <input type="number" id="current_hum1_t" required class="special-box">
+                        <input type="number" id="current_hum1" required class="special-box">
                     </div> 
 
                     <div>
                         <label>Amperajes humidificador 2 (A):</label><br>
-                        <input type="number" id="current_hum2_r" required class="special-box">
-                        <input type="number" id="current_hum2_s" required class="special-box">
-                        <input type="number" id="current_hum2_t" required class="special-box">
-                    </div>                     
-
+                        <input type="number" id="current_hum2" required class="special-box">
+                    </div>  
+                    
                     <div>
                     <div><label>Voltaje de placa (V):</label></div>
                     <div><label><input type="text" id="voltage_plate"></label></div>
@@ -343,7 +375,7 @@
 
             <!-- 5 – Chequeo eléctrico -->
             <hr>
-            <div class="section-header"><strong>5 – Chequeo eléctrico</strong></div>
+            <div class="section-header"><strong>6 – Chequeo eléctrico</strong></div>
             <div class="grid checkboxes">
                 <label><input type="checkbox" id="main_switch_ok">Switch principal, hardware y cables correctos OK</label>
                 <label><input type="checkbox" id="highvolt_cables_ok">Cables de alto voltaje OK</label>
@@ -360,14 +392,14 @@
 
             <!-- 6 – Chequeo en refrigeración -->
             <hr>
-            <div class="section-header"><strong>6 – Chequeo en refrigeración</strong></div>
+            <div class="section-header"><strong>7 – Chequeo en refrigeración</strong></div>
             <div class="grid checkboxes">
                 <label><input type="checkbox" id="fans_ok">Ventiladores OK</label>
                 <label><input type="checkbox" id="coils_ok">Serpentines OK</label>
                 <label><input type="checkbox" id="armafles_ok">Armaflex OK</label>
                 <label><input type="checkbox" id="injection_valve_ok">Válvula de inyección OK</label>
                 <label><input type="checkbox" id="level_oi_ok">Nivel de aceite correcto</label>
-                <label><input type="checkbox" id="protect_lowleveloil_ok">Bajo Nivel de aceite Protección</label>
+                <label><input type="checkbox" id="protect_lowleveloil_ok">Bajo nivel de aceite Protección OK</label>
                 <label><input type="checkbox" id="sights_ok">Mirillas OK</label>
                 <label><input type="checkbox" id="acid_ok">Prueba de acidez</label>
                 <label><input type="checkbox" id="hilow_protect_ok">Chequeo Hi/Low</label>
@@ -391,7 +423,7 @@
 
             <!-- 7 – Pruebas -->
             <hr>
-            <div class="section-header"><strong>7 – Pruebas</strong></div>
+            <div class="section-header"><strong>8 – Pruebas</strong></div>
             <div class="grid">
                 <div><label>Temp. ambiente (°C):</label><input type="text" id="hum_from"></div>
                 <div><label>Punto máximo -10 (°C):</label><input type="text" id="heat_target"></div>
@@ -406,7 +438,7 @@
                 <label><input type="checkbox" id="hum_test_ok">Prueba de humedad (soak 30 min c/u)</label>
             </div>
                         <hr>
-            <div class="section-header"><strong>8 – Indicadores de Salud</strong></div>
+            <div class="section-header"><strong>9 – Indicadores de Salud</strong></div>
 <div class="custom-select">
 <div>
     <label>¿Qué Semáforo de salud tiene el sistema de Refrigeración?</label><br> 
@@ -459,7 +491,7 @@
   </select>
 </div>
 <hr>
-            <div class="section-header"><strong>9 - Falla Reportada o diagnósticada</strong></div>
+            <div class="section-header"><strong>11 - Falla Reportada o diagnósticada</strong></div>
             <div class="fullwidth"><textarea id="fail_work"required class="special-box" placeholder="Si no hay o no se reportó falla, indicarlo aquí"></textarea></label></div><br>
             <div class="section-header"><label><strong>10 - Actividades realizadas:*<br></strong></label></div>
             <div class="fullwidth"><textarea id="act_work" placeholder = "FAVOR DE APOYARSE CON LAS SIGUIENTES PREGUNTAS PARA QUE EL REPORTE QUEDE CON INFORMACIÓN MÁS COMPLETA:
@@ -475,19 +507,19 @@
 
             <!-- 10 – Observaciones -->
             <hr>
-            <div class="section-header"><strong>11 – Notas del Cliente</strong></div>
+            <div class="section-header"><strong>12 – Notas del Cliente</strong></div>
             <textarea id="notes_Cus" placeholder="Es importante pedir al cliente su evaluación del servicio ofrecido o algún comentario relevante"required class="special-box"></textarea>
 
             <!-- 11 – Firma de especialista -->
             <hr>
-            <div class="section-header"><strong>12 – Firma de especialista</strong></div>
+            <div class="section-header"><strong>13 – Firma de especialista</strong></div>
             <div><label>Nombre de Especialista</label><input type="text" id="name_esp"></div>
             <button type="button" id="openSignatureEsp">Firma de Especialista</button>
             <canvas id="signaturePreviewEsp" width="300" height="150"></canvas>
 
             <!-- 12 – Firma de cliente -->
             <hr>
-            <div class="section-header"><strong>13 – Firma de cliente</strong></div>
+            <div class="section-header"><strong>14 – Firma de cliente</strong></div>
             <div><label>Nombre de Cliente</label><input type="text" id="name_cus"></div>
             <button type="button" id="openSignatureCus">Firma de Cliente</button>
             <canvas id="signaturePreviewCus" width="300" height="150" required></canvas>
